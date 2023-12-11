@@ -1,0 +1,17 @@
+
+header {
+    background-color: lightgreen;
+    margin:-8px;
+}
+
+#encabezado-container {
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    margin: 0 auto;
+    padding: 20px 2% 20px 2%;
+
+}
+
