@@ -26,6 +26,32 @@ header {
     height: auto;
 }
 
-#admin-title{
+#admin-title {
+    text-transform: uppercase;
     padding: 0 0 0 2%;
+}
+
+#encabezado-dcha img{
+    width: 40%
+}
+
+.input-field{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: .5em;
+    margin-top: 1em;
+}
+
+#label-icon img{
+    width: 30px;
+    height: 30px;
+}
+
+#search{
+   padding: .5em
+}
+
+main h1{
+    text-transform: uppercase;
 }
