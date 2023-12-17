@@ -1,4 +1,4 @@
-package velazquez.loteria_navidad;
+package velazquez.loteria_navidad.controllers;
 
 import java.io.*;
 
