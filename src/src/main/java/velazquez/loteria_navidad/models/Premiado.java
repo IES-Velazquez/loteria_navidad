@@ -12,6 +12,9 @@ public class Premiado implements Serializable {
         this.position = position;
         this.premio = premio;
     }
+    public Premiado(String bol_num){
+        this.bol_num=bol_num;
+    }
 
     public String getBol_num() {
         return bol_num;

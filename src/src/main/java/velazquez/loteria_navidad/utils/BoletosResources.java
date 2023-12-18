@@ -35,13 +35,14 @@ public class BoletosResources {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response premiado(Premiado[] checkear){
+    public Response premiado(){
         /*
         Este bloque también es provicional, ya que no se ha decidido la estructura
         de los modelos para este parámetro.
 
         Lo fundamental es que debe recibir un json con un array de objetos con los números que se quieran comprobar, estos luego se comprueban con la Api del Pais.Us
          */
+        System.out.println("llega");
         ArrayList<Premiado> premiados = new ArrayList<>();
         premiados.add(new Premiado("23234", 1, 234.34));
         premiados.add(new Premiado("23562", 2, 134.34));
@@ -64,7 +65,7 @@ public class BoletosResources {
     public Response getUsers(){
         //bloque provisional hasta que se cree el dao
         ArrayList<User> users = new ArrayList<>();
-        users.add(new User());
+        users.add(new User("manolo"));
 
         Gson gson = new Gson();
         String jsonString = gson.toJson(users);
@@ -81,7 +82,34 @@ public class BoletosResources {
     @Produces(MediaType.APPLICATION_JSON)
     public Response userBoletos(User user){
 
+        System.out.println(user);
+        Premiado premiado = new Premiado("235");
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(premiado);
+        return Response.status(Response.Status.OK).entity(jsonString).build();
+    }
+    /*
+    Este bloque recibe un premiado con solo el id del boleto y devuelve los boletos que quedan por vender
+     */
+    @Path("/boletos_avaliable")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response checkNumber(Premiado boleto){
 
-        return null;
+
+        System.out.println(boleto);
+        //        Este bloque sirve como template para probar la api hasta que se haga el resto
+        ArrayList<Premiado> premiados = new ArrayList<>();
+        premiados.add(new Premiado("23234", 1, 234.34));
+        premiados.add(new Premiado("23562", 2, 134.34));
+        premiados.add(new Premiado("99823", 3, 34.34));
+        premiados.add(new Premiado("23", 4, 4.34));
+
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(premiados);
+        return Response.status(Response.Status.OK).entity(jsonString).build();
+
+
     }
 }
