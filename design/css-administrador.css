@@ -1,7 +1,6 @@
-
 header {
     background-color: lightgreen;
-    margin:-8px;
+    margin: -8px;
 }
 
 #encabezado-container {
@@ -15,13 +14,13 @@ header {
 
 }
 
-#izq-img{
+#izq-img {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
-#izq-img img{
+#izq-img img {
     width: 70px;
     height: auto;
 }
@@ -31,11 +30,11 @@ header {
     padding: 0 0 0 2%;
 }
 
-#encabezado-dcha img{
+#encabezado-dcha img {
     width: 40%
 }
 
-.input-field{
+.input-field {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -43,15 +42,38 @@ header {
     margin-top: 1em;
 }
 
-#label-icon img{
+#label-icon img {
     width: 30px;
     height: 30px;
 }
 
-#search{
-   padding: .5em
+#search {
+    padding: .5em
 }
 
-main h1{
+main h1 {
     text-transform: uppercase;
+}
+
+/*Tabla usuarios*/
+
+#table {
+    text-align: center;
+}
+
+#table table {
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    height: 1em;
 }
