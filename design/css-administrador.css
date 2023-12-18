@@ -1,6 +1,10 @@
 header {
-    background-color: lightgreen;
+    background-color: #386641;
     margin: -8px;
+}
+
+body{
+    background-color: #F2E8CF;
 }
 
 #encabezado-container {
@@ -48,7 +52,7 @@ header {
 }
 
 #search {
-    padding: .5em
+    padding: .7em
 }
 
 main h1 {
@@ -67,7 +71,7 @@ main h1 {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #BC4749;
     color: #fff;
 }
 
@@ -76,4 +80,18 @@ td {
     padding: 10px;
     text-align: center;
     height: 1em;
+}
+
+td{
+    background-color: #ffff;
+}
+
+/*Icons*/
+
+.delete-icon{
+    width: 30%;
+}
+
+#encabezado-dcha img{
+    width: 60%;
 }
