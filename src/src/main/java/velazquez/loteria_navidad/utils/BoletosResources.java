@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import velazquez.loteria_navidad.models.Numero;
 import velazquez.loteria_navidad.models.Premiado;
 import velazquez.loteria_navidad.models.User;
 
@@ -78,14 +79,28 @@ public class BoletosResources {
      */
     @Path("/user_boletos")
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes({MediaType.APPLICATION_JSON})
     @Produces(MediaType.APPLICATION_JSON)
     public Response userBoletos(User user){
 
         System.out.println(user);
-        Premiado premiado = new Premiado("235");
+//        Premiado premiado = new Premiado("234");
+//        Gson gson = new Gson();
+//        String jsonString = gson.toJson(premiado);
+//        return Response.status(Response.Status.OK).entity(jsonString).build();
+
+
+
+
+        //        Este bloque sirve como template para probar la api hasta que se haga el resto
+        ArrayList<Premiado> premiados = new ArrayList<>();
+        premiados.add(new Premiado("23234", 1, 234.34));
+        premiados.add(new Premiado("23562", 2, 134.34));
+        premiados.add(new Premiado("99823", 3, 34.34));
+        premiados.add(new Premiado("23", 4, 4.34));
+
         Gson gson = new Gson();
-        String jsonString = gson.toJson(premiado);
+        String jsonString = gson.toJson(premiados);
         return Response.status(Response.Status.OK).entity(jsonString).build();
     }
     /*
@@ -93,9 +108,9 @@ public class BoletosResources {
      */
     @Path("/boletos_avaliable")
     @POST
-    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response checkNumber(Premiado boleto){
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response checkNumber(Numero boleto){
 
 
         System.out.println(boleto);

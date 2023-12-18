@@ -1,5 +1,8 @@
 package velazquez.loteria_navidad.models;
 
+import com.google.gson.annotations.JsonAdapter;
+import org.glassfish.jersey.server.JSONP;
+
 import java.io.Serializable;
 
 public class User implements Serializable {

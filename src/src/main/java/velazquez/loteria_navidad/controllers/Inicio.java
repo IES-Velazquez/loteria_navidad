@@ -19,6 +19,7 @@ public class Inicio extends HttpServlet {
 
     logger.info("doGet");
 
-    request.getRequestDispatcher("WEB-INF/view/inicio.jsp").forward(request, response);
+//    request.getRequestDispatcher("WEB-INF/view/inicio.jsp").forward(request, response);
+    request.getRequestDispatcher("WEB-INF/test/test.jsp").forward(request, response);
   }
 }

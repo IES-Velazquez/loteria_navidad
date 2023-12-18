@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="../utilitiesComp.js"></script>
+<script>
+  function AjaxPeticion(url, methType, call, params){
+    const cab ={
+      method: methType,
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(params)
+    }
+    fetch(url, cab)
+            .then(r=>r.json())
+            .then(response=>call(response))
+  }
+
+
+  function llamadaservidor(){
+    var url = "http://localhost:8081/loteria_navidad_war/rest/json/user_boletos"
+    var method = "POST"
+    var params = {user: "user"}
+    var call = recibeServidor
+    AjaxPeticion(url, method, call, params)
+  }
+
+  function recibeServidor(obj){
+    console.log(obj)
+  }
+  window.onload = ()=>{
+    llamadaservidor()
+  }
+</script>
+<body>
+
+</body>
+</html>

@@ -42,7 +42,7 @@ public class Premiado implements Serializable {
 
     @Override
     public String toString() {
-        return "Premiado{" +
+        return "{" +
                 "bol_num='" + bol_num + '\'' +
                 ", position=" + position +
                 ", premio=" + premio +
