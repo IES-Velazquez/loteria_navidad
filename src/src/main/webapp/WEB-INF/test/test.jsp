@@ -29,14 +29,14 @@
   function llamadaservidorUser(){
     var url = "http://localhost:8081/loteria_navidad_war/rest/json/user_boletos"
     var method = "POST"
-    var params = {user: "user"}
+    var params = {usuario: "user"}
     var call = recibeServidor
     AjaxPeticion(url, method, call, params)
   }
   function llamadaservidorBoleto(){
       var url = "http://localhost:8081/loteria_navidad_war/rest/json/boletos_avaliable"
       var method = "POST"
-      var params = {bol_num: "234234", position: 0, premio: 0.0}
+      var params = {numero: 234234}
       var call = recibeServidor
       AjaxPeticion(url, method, call, params)
   }
@@ -45,7 +45,7 @@
     console.log(obj)
   }
   window.onload = ()=>{
-     // llamadaservidorUser()
+      llamadaservidorUser()
       llamadaservidorBoleto()
   }
 </script>
