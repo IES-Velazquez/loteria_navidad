@@ -10,7 +10,7 @@
 
     <servlet>
         <servlet-name>Inicio</servlet-name>
-        <servlet-class>velazquez.loteria_navidad.Inicio</servlet-class>
+        <servlet-class>velazquez.loteria_navidad.controllers.Inicio</servlet-class>
     </servlet>
 
     <servlet-mapping>
