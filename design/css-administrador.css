@@ -105,7 +105,8 @@ td{
 }
 
 #encabezado-dcha img{
-    width: 60%;
+    width: 3vw;
+    display: block;
 }
 
 /*Details*/
@@ -122,4 +123,30 @@ details > summary{
 
 .listaLoteria li{
     text-align: left;
+}
+
+/*Botones*/
+
+.delete-button, #logout-button{
+    border: none;
+    cursor: pointer;
+    border-radius: .75em;
+    transition: all .25s;
+    padding: .5em;
+}
+
+.delete-button{
+    background-color: #fff;
+}
+
+.delete-button:hover{
+    background-color: #F2E8CF;
+}
+
+#logout-button{
+    background-color: #386641;
+}
+
+#logout-button:hover{
+    background-color: #6a994e;
 }

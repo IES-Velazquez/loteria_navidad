@@ -1,82 +1,31 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <title>Administracion Loteria</title>
-  <style>
-    * {
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    header{
-      margin: 0.1vw;
-      height: 4em;
-      background-color: lightgreen;
-      border-radius: 10px;
-      border-color: rgb(133, 218, 133);
-      display: flex;
-    }
-
-    header p{
-      font-size: 30px;
-      margin-top: 1%;
-    }
-
-    div{
-		
-      margin-top: 10%;
-      margin-left: 10%;
-    }
-
-    img{
-      padding-top: 1%;
-    }
-
-    #salir{
-	  margin-left:90%;
-    }
-
-    .bt {
-      padding: 1%;
-      background-color: cyan;
-      margin-right: 2%;
-      margin-bottom: 3%;
-      border: 3px solid rgb(221, 149, 149);
-      border-radius: 1px 17px 12px 25px;
-      box-shadow: 0px 2.5px 5.7px 0px #0091ff;
-      font-size: 15px;
-      transition: all 0.3s;
-    }
-
-    .bt:hover {
-      color: #0091ff ;
-      background-color:#ffffff
-    }
-
-    .cont {
-      width: 1em;
-      margin: 0;
-    }
-
-    #cant1 {
-      width: 1.3em;
-    }
-
-    #for{
-      
-    }
-  </style>
+  
 </head>
 
 <body>
   <header>
-    <img src="icons8-usuario-96.png">
-    <p>USER</p><img id="salir" src="icons8-salir-96.png">
-  </header>
+    <nav id="encabezado-container">
+        <div id="encabezado-izq">
+            <div id="izq-img">
+                <img src="images/SolarUserBold.png" alt="imagen-perfil">
+                <div id="admin-title">
+                    <h2>Administrador</h2>
+                    <h3>Aquí iría la última conexión del admin</h3>
+                </div>
+            </div>
+        </div>
+        <div id="encabezado-dcha">
+            <button id="logout-button" type="button">
+                <img src="images/MdiLogoutVariant.png" alt="icon-salir">
+            </button>
+        </div>
+    </nav>
+</header>
   <div id="divComprobar">
     <button id="btAnadir" class="bt">AÑADIR</button><button id="btBorrar" class="bt">BORRAR</button>
     <table>
@@ -105,4 +54,64 @@
   </div>
   <script src="../js/main.js"></script>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administracion Loteria</title>
+  <link rel="stylesheet" href="css-user.css">
+
+</head>
+<body>
+  <header>
+    <nav id="encabezado-container">
+        <div id="encabezado-izq">
+            <div id="izq-img">
+                <img src="images/SolarUserBold.png" alt="imagen-perfil">
+                <div id="admin-title">
+                    <h2>--name User--</h2>
+                </div>
+            </div>
+        </div>
+        <div id="encabezado-dcha">
+            <button id="logout-button" type="button">
+                <img src="images/MdiLogoutVariant.png" alt="icon-salir">
+            </button>
+        </div>
+    </nav>
+</header>
+
+<main>
+  <div id="divComprobar">
+    <button id="btAnadir" class="bt">AÑADIR</button><button id="btBorrar" class="bt">BORRAR</button>
+    <table>
+      <thead>
+        <td>GRUPO</td>
+        <td>NÚMERO</td>
+        <td>CANTIDAD</td>
+        <td>PARTICIPACIÓN</td>
+      </thead>
+      <tbody>
+        <td></td>
+        <td></td>
+        <td><button id="contMin" class="cont">-</button><input id="cant1" type="text" value="1"><button id="contMin" class="cont">+</button></td>
+        <td></td>
+      </tbody>
+    </table>
+    <button class="bt">COMPROBAR</button>
+  </div>
+  <div id="comprobacionNumero">
+    <form id="for">
+      <label>número</label><input id="inputComprobar"><button type="button" class="bt" id="btComprobar">COMPROBAR BOLETO</button>
+      <label>cantidad</label><input id="inputCantidad">
+      <label>participacion</label><input id="inputParticipacion">%
+      <button class="bt" id="btConfirmar">CONFIRMAR</button>
+    </form>
+  </div>
+</main>
+<script src="../js/main.js"></script>
+<body>
 </html>
