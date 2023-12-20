@@ -30,10 +30,19 @@ public class RegisterServlet extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String usuario = request.getParameter("usuario");
         String password = request.getParameter("password");
+        String confirmarPassword = request.getParameter("confirmarPassword");
 
-        logger.info(nombre +  ", " + usuario + ", " + password);
+        logger.info(nombre +  ", " + usuario + ", " + password + ", " + confirmarPassword);
 
-        if (nombre != null && usuario != null && password != null) {
+        if (nombre != null && usuario != null && password != null && confirmarPassword != null) {
+
+            if ( !password.equals(confirmarPassword) ) {
+                error = "Las contraseñas no coinciden";
+                logger.error(error);
+                request.setAttribute("error", error);
+
+                doGet(request, response);
+            }
 
             password = PasswordHashGenerator.hashPassword(password);
             DAOUsuarioImpl daoUsuario = new DAOUsuarioImpl();
@@ -54,5 +63,4 @@ public class RegisterServlet extends HttpServlet {
             doGet(request, response);
         }
     }
-
 }
