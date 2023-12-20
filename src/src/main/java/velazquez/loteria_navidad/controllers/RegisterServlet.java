@@ -18,7 +18,7 @@ public class RegisterServlet extends HttpServlet {
         logger.info("doGet");
 
         response.setContentType("text/html");
-        request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/view/formularioRegistro.jsp").forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
