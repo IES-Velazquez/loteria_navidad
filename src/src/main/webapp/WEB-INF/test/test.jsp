@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <script>
   function AjaxPeticion(url, methType, call, params){
@@ -50,6 +51,8 @@
   }
 </script>
 <body>
-
+    <div id="cosa">
+        nombre
+    </div>
 </body>
 </html>
