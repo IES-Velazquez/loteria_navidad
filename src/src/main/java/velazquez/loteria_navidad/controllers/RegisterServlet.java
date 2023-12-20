@@ -1,6 +1,7 @@
 package velazquez.loteria_navidad.controllers;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import velazquez.loteria_navidad.utils.PasswordHashGenerator;
 
 import java.io.IOException;
 
+@WebServlet(name = "RegisterServlet", value="/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
     static final Logger logger = LoggerFactory.getLogger(RegisterServlet.class);
 
