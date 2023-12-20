@@ -94,12 +94,13 @@
             <version>3.1.3</version>
         </dependency>
 
-        <!--        mindrot-->
+     <!--        mindrot-->
         <dependency>
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
             <version>0.4</version>
         </dependency>
+
 
         <!--pooldb-->
         <dependency>
@@ -117,6 +118,7 @@
             <artifactId>commons-logging</artifactId>
             <version>1.2</version>
         </dependency>
+
     </dependencies>
 
     <build>
