@@ -47,11 +47,29 @@ function crearFila(obj) {
             summary.className = "nameUser";
             summary.textContent = "Información del usuario";
             var div = document.createElement("div");
+            div.className = "datosUser";
+
+            var spanUser = document.createElement("span");
+            spanUser.textContent = "Nombre: ";
+            spanUser.className = "tituloDatUser";
+
+            div.appendChild(spanUser);
+            div.appendChild(document.createTextNode(cont + "<br>"))
 
 
+            var url = "http://localhost:8081/loteria_navidad_war/rest/json/user_boletos";
+            const options = {
+                method: "POST",
+                body: { usuario: cont }
+            };
+            //TODO: falta crear spans de los numeros que estan guardados en el arrayNumeros
+            var arrayNumeros = [];
+            fetch(url, options)
+                .then(response => response.json())
+                .then(data => arrayNumeros.push(data))
 
 
-            col.appendChild(document.createTextNode(cont));
+            col.appendChild(detail);
         } else if (valor == "borrar") {
             var boton = document.createElement("button");
             boton.textContent = "Borrar";
