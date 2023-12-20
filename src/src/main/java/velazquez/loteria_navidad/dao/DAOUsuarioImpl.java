@@ -3,6 +3,7 @@ package velazquez.loteria_navidad.dao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import velazquez.loteria_navidad.db.PoolDBContext;
+import velazquez.loteria_navidad.models.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,5 +35,33 @@ public class DAOUsuarioImpl implements DAOUsuario{
         }
 
         return success;
+    }
+
+    @Override
+    public Usuario getUsuario(String usuario) {
+        Connection con;
+        Usuario objetoUsuario = null;
+
+        try {
+            String sql = "SELECT * FROM Usuarios WHERE usuario=?";
+            PoolDBContext pool = new PoolDBContext();
+            con = pool.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, usuario);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                String user = rs.getString("usuario");
+                String pass = rs.getString("pass");
+                String role = rs.getString("role");
+                String nombre = rs.getString("nombre");
+
+                objetoUsuario = new Usuario(user, pass, role, nombre);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
+
+        return objetoUsuario;
     }
 }
