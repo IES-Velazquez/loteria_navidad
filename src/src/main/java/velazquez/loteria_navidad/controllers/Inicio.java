@@ -13,13 +13,19 @@ import org.slf4j.LoggerFactory;
 public class Inicio extends HttpServlet {
   static final Logger logger = LoggerFactory.getLogger(Inicio.class);
 
+  @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
     response.setContentType("text/html");
 
     logger.info("doGet");
 
-//    request.getRequestDispatcher("WEB-INF/view/inicio.jsp").forward(request, response);
-    request.getRequestDispatcher("WEB-INF/test/test.jsp").forward(request, response);
+    request.getRequestDispatcher("WEB-INF/view/inicio.jsp").forward(request, response);
+//    request.getRequestDispatcher("WEB-INF/test/test.jsp").forward(request, response);
+  }
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    logger.info("doPost");
+    
   }
 }
