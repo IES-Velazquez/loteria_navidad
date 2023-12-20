@@ -21,7 +21,7 @@
                 <label for="nombre" class="form-label mt-3">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
                 <br>
-                <label for="password" class="form-label mt-3">Contraseza</label>
+                <label for="password" class="form-label mt-3">Contraseña</label>
                 <input type="password" class="form-control" id="password" name="password" required>
                 <br>
                 <input type="submit" class="btn btn-primary w-100 mt-3" value="Registrarse"/>

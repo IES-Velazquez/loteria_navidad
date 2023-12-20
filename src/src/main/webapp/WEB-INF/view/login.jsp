@@ -9,6 +9,5 @@
         <title>Document</title>
     </head>
     <body>
-        Wololo login
     </body>
 </html>
