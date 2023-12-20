@@ -6,39 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprobacion Loteria</title>
     <link rel="stylesheet" href="comprobacion-loteria.css">
-    <script type="text/javascript">
-
-        function darFormaTabla() {
-            var tbody = document.createElement('tbody');
-            var table = document.getElementById("tablaLoteria");
-
-            for (var i = 1; i <= 6; i++) {
-                var tr = document.createElement("tr");
-                var tdNumero = document.createElement("td");
-                var tdPremio = document.createElement("td");
-                var tdResultado = document.createElement("td");
-
-                tr.appendChild(tdNumero);
-                tr.appendChild(tdResultado);
-                tr.appendChild(tdPremio);
-                tbody.appendChild(tr);
-            }
-
-            table.appendChild(tbody);
-        }
-
-
-
-        window.onload = function () {
-            darFormaTabla()
-        }
-    </script>
 </head>
 
 <body>
     <header>
-        <h1>Comprobacion de Loteria de Navidad</h1>
-        <button name="boton_salir" id="btnSalir">Salir</button>
+        <nav id="encabezado-container">
+            <div id="encabezado-izq">
+                <div id="izq-img">
+                    <img src="images/SolarUserBold.png" alt="imagen-perfil">
+                    <div id="admin-title">
+                        <h2>user</h2> <!--Aquí va el nombre de usuario-->
+                        <h3>COMPROBACIÓN LOTERÍA DE NAVIDAD</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="encabezado-dcha">
+                <button id="logout-button" type="button">
+                    <img src="images/MdiLogoutVariant.png" alt="icon-salir">
+                </button>
+            </div>
+        </nav>
     </header>
     <div id="contenedortabla">
         <table id="tablaLoteria">
@@ -56,6 +43,7 @@
             </tfoot>
         </table>
     </div>
+    <script src=""></script>
 </body>
 
 </html>
