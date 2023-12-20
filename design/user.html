@@ -4,40 +4,6 @@
 <head>
   <meta charset="utf-8">
   <title>Administracion Loteria</title>
-  <script type="text/javascript">
-		function comprobarBoleto(){
-			var faltaDato = document.createElement("p");
-			var divComprobar = document.getElementById("divComprobar");
-			var numBoleto = document.getElementById("inputComprobar").value;
-			if(numBoleto == ""){
-				faltaDato = "Falta el dato número o no está completo";
-				console.log(faltaDato);
-			}
-		}
-		
-		function validarNumeros(evt){
-			var code = (evt.which) ? evt.which : evt.keyCode;
-			
-			 if((code>=48 && code<=57)&& document.getElementById("inputComprobar").value.length<5) {
-			  return true;
-			} else{
-			  return false;
-			}
-		}
-		
-		function confirmar(){
-			
-		}
-		
-		
-		window.onload = function(){
-			document.getElementById("btComprobar").onclick = comprobarBoleto;
-			document.getElementById("btConfirmar").onclick = confirmar;
-			document.getElementById("inputComprobar").onclick = () => {
-				validarNumeros();
-			}
-		}
-  </script>
   <style>
     * {
       text-align: center;
@@ -129,13 +95,14 @@
     </table>
     <button class="bt">COMPROBAR</button>
   </div>
-  <div>
+  <div id="comprobacionNumero">
     <form id="for">
-      <label>número</label><input id="inputComprobar" onkeypress="return validarNumeros(event)"><button class="bt" id="btComprobar">COMPROBAR BOLETO</button>
+      <label>número</label><input id="inputComprobar"><button type="button" class="bt" id="btComprobar">COMPROBAR BOLETO</button>
       <label>cantidad</label><input id="inputCantidad">
       <label>participacion</label><input id="inputParticipacion">%
       <button class="bt" id="btConfirmar">CONFIRMAR</button>
     </form>
   </div>
+  <script src="../js/main.js"></script>
 </body>
 </html>
