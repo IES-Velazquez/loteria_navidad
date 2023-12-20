@@ -13,15 +13,17 @@
         <nav id="encabezado-container">
             <div id="encabezado-izq">
                 <div id="izq-img">
-                    <img src="icons8-usuario-96.png" alt="imagen-perfil">
+                    <img src="images/SolarUserBold.png" alt="imagen-perfil">
                     <div id="admin-title">
                         <h2>Administrador</h2>
-                        <h3>-ultima Conexion-</h3>
+                        <!--<h3>Aquí iría la última conexión del admin</h3>-->
                     </div>
                 </div>
             </div>
             <div id="encabezado-dcha">
-                <img src="icons8-salir-96.png" alt="icon-salir">
+                <button id="logout-button" type="button">
+                    <img src="images/MdiLogoutVariant.png" alt="icon-salir">
+                </button>
             </div>
         </nav>
     </header>
@@ -30,11 +32,11 @@
         <div class="buscador-wrapper">
             <form>
                 <div class="input-field">
-                    <input id="search" type="search" required placeholder="Buscar usuario">
                     <label id="label-icon" for="search">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTI0IDB2MjRIMFYwaDI0Wk0xMi41OTMgMjMuMjU4bC0uMDExLjAwMmwtLjA3MS4wMzVsLS4wMi4wMDRsLS4wMTQtLjAwNGwtLjA3MS0uMDM1Yy0uMDEtLjAwNC0uMDE5LS4wMDEtLjAyNC4wMDVsLS4wMDQuMDFsLS4wMTcuNDI4bC4wMDUuMDJsLjAxLjAxM2wuMTA0LjA3NGwuMDE1LjAwNGwuMDEyLS4wMDRsLjEwNC0uMDc0bC4wMTItLjAxNmwuMDA0LS4wMTdsLS4wMTctLjQyN2MtLjAwMi0uMDEtLjAwOS0uMDE3LS4wMTctLjAxOFptLjI2NS0uMTEzbC0uMDEzLjAwMmwtLjE4NS4wOTNsLS4wMS4wMWwtLjAwMy4wMTFsLjAxOC40M2wuMDA1LjAxMmwuMDA4LjAwN2wuMjAxLjA5M2MuMDEyLjAwNC4wMjMgMCAuMDI5LS4wMDhsLjAwNC0uMDE0bC0uMDM0LS42MTRjLS4wMDMtLjAxMi0uMDEtLjAyLS4wMi0uMDIyWm0tLjcxNS4wMDJhLjAyMy4wMjMgMCAwIDAtLjAyNy4wMDZsLS4wMDYuMDE0bC0uMDM0LjYxNGMwIC4wMTIuMDA3LjAyLjAxNy4wMjRsLjAxNS0uMDAybC4yMDEtLjA5M2wuMDEtLjAwOGwuMDA0LS4wMTFsLjAxNy0uNDNsLS4wMDMtLjAxMmwtLjAxLS4wMWwtLjE4NC0uMDkyWiIvPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTEwLjUgMmE4LjUgOC41IDAgMSAwIDUuMjYyIDE1LjE3NmwzLjY1MiAzLjY1MmExIDEgMCAwIDAgMS40MTQtMS40MTRsLTMuNjUyLTMuNjUyQTguNSA4LjUgMCAwIDAgMTAuNSAyWk00IDEwLjVhNi41IDYuNSAwIDEgMSAxMyAwYTYuNSA2LjUgMCAwIDEtMTMgMFoiLz48L2c+PC9zdmc+"
-                            alt="icon-search">
+                        <img src="images/search.png" alt="icon-search">
                     </label>
+                    <input id="search" type="search" required placeholder="Buscar usuario">
+                    
                 </div>
             </form>
         </div>
@@ -50,27 +52,29 @@
 
                 </thead>
                 <tbody id="cuerpoUsuarios">
-                    <tr>
+                   <!--<tr>
                         <td>
                             <details>
-                                <summary class="nameUser">Nombre de usuario</summary>
-                                <div class="datosUser">
-                                    <span class="tituloDatUser">USUARIO: </span> name <br>
-                                    <span class="tituloDatUser">NÚMERO LOTERIA: </span>name
-                                </div>
+                                <summary class="nameUser">Información del usuario</summary>
+                                    <div class="datosUser">
+                                        <span class="tituloDatUser">USUARIO: </span> name <br>
+                                        <span class="tituloDatUser">NÚMERO LOTERIA</span> 
+                                        <ul class="listaLoteria">
+                                            <li>numero</li>
+                                        </ul>
+                                    </div>
                             </details>
                         </td>
                         <td>
-                            <img class="delete-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTI0IDB2MjRIMFYwaDI0Wk0xMi41OTMgMjMuMjU4bC0uMDExLjAwMmwtLjA3MS4wMzVsLS4wMi4wMDRsLS4wMTQtLjAwNGwtLjA3MS0uMDM1Yy0uMDEtLjAwNC0uMDE5LS4wMDEtLjAyNC4wMDVsLS4wMDQuMDFsLS4wMTcuNDI4bC4wMDUuMDJsLjAxLjAxM2wuMTA0LjA3NGwuMDE1LjAwNGwuMDEyLS4wMDRsLjEwNC0uMDc0bC4wMTItLjAxNmwuMDA0LS4wMTdsLS4wMTctLjQyN2MtLjAwMi0uMDEtLjAwOS0uMDE3LS4wMTctLjAxOFptLjI2NS0uMTEzbC0uMDEzLjAwMmwtLjE4NS4wOTNsLS4wMS4wMWwtLjAwMy4wMTFsLjAxOC40M2wuMDA1LjAxMmwuMDA4LjAwN2wuMjAxLjA5M2MuMDEyLjAwNC4wMjMgMCAuMDI5LS4wMDhsLjAwNC0uMDE0bC0uMDM0LS42MTRjLS4wMDMtLjAxMi0uMDEtLjAyLS4wMi0uMDIyWm0tLjcxNS4wMDJhLjAyMy4wMjMgMCAwIDAtLjAyNy4wMDZsLS4wMDYuMDE0bC0uMDM0LjYxNGMwIC4wMTIuMDA3LjAyLjAxNy4wMjRsLjAxNS0uMDAybC4yMDEtLjA5M2wuMDEtLjAwOGwuMDA0LS4wMTFsLjAxNy0uNDNsLS4wMDMtLjAxMmwtLjAxLS4wMWwtLjE4NC0uMDkyWiIvPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE0LjI4IDJhMiAyIDAgMCAxIDEuODk3IDEuMzY4TDE2LjcyIDVIMjBhMSAxIDAgMSAxIDAgMmwtLjAwMy4wNzFsLS44NjcgMTIuMTQzQTMgMyAwIDAgMSAxNi4xMzggMjJINy44NjJhMyAzIDAgMCAxLTIuOTkyLTIuNzg2TDQuMDAzIDcuMDdBMS4wMSAxLjAxIDAgMCAxIDQgN2ExIDEgMCAwIDEgMC0yaDMuMjhsLjU0My0xLjYzMkEyIDIgMCAwIDEgOS43MjEgMmg0LjU1OFpNOSAxMGExIDEgMCAwIDAtLjk5My44ODNMOCAxMXY2YTEgMSAwIDAgMCAxLjk5My4xMTdMMTAgMTd2LTZhMSAxIDAgMCAwLTEtMVptNiAwYTEgMSAwIDAgMC0xIDF2NmExIDEgMCAxIDAgMiAwdi02YTEgMSAwIDAgMC0xLTFabS0uNzItNkg5LjcybC0uMzMzIDFoNS4yMjZsLS4zMzQtMVoiLz48L2c+PC9zdmc+"
-                                alt="" />
-
-
+                            <button class="delete-button" type="button">
+                                <img class="delete-icon" src="images/MingcuteDelete2Fill.png" alt="icon-delete" />
+                            </button>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <details>
-                                <summary class="nameUser">Nombre de usuario</summary>
+                                <summary class="nameUser">Información del usuario</summary>
                                 <div class="datosUser">
                                     <span class="tituloDatUser">USUARIO: </span>name <br>
                                     <span class="tituloDatUser">NÚMERO LOTERIA: </span>name
@@ -78,18 +82,16 @@
                             </details>
                         </td>
                         <td>
-
-                            <img class="delete-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTI0IDB2MjRIMFYwaDI0Wk0xMi41OTMgMjMuMjU4bC0uMDExLjAwMmwtLjA3MS4wMzVsLS4wMi4wMDRsLS4wMTQtLjAwNGwtLjA3MS0uMDM1Yy0uMDEtLjAwNC0uMDE5LS4wMDEtLjAyNC4wMDVsLS4wMDQuMDFsLS4wMTcuNDI4bC4wMDUuMDJsLjAxLjAxM2wuMTA0LjA3NGwuMDE1LjAwNGwuMDEyLS4wMDRsLjEwNC0uMDc0bC4wMTItLjAxNmwuMDA0LS4wMTdsLS4wMTctLjQyN2MtLjAwMi0uMDEtLjAwOS0uMDE3LS4wMTctLjAxOFptLjI2NS0uMTEzbC0uMDEzLjAwMmwtLjE4NS4wOTNsLS4wMS4wMWwtLjAwMy4wMTFsLjAxOC40M2wuMDA1LjAxMmwuMDA4LjAwN2wuMjAxLjA5M2MuMDEyLjAwNC4wMjMgMCAuMDI5LS4wMDhsLjAwNC0uMDE0bC0uMDM0LS42MTRjLS4wMDMtLjAxMi0uMDEtLjAyLS4wMi0uMDIyWm0tLjcxNS4wMDJhLjAyMy4wMjMgMCAwIDAtLjAyNy4wMDZsLS4wMDYuMDE0bC0uMDM0LjYxNGMwIC4wMTIuMDA3LjAyLjAxNy4wMjRsLjAxNS0uMDAybC4yMDEtLjA5M2wuMDEtLjAwOGwuMDA0LS4wMTFsLjAxNy0uNDNsLS4wMDMtLjAxMmwtLjAxLS4wMWwtLjE4NC0uMDkyWiIvPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE0LjI4IDJhMiAyIDAgMCAxIDEuODk3IDEuMzY4TDE2LjcyIDVIMjBhMSAxIDAgMSAxIDAgMmwtLjAwMy4wNzFsLS44NjcgMTIuMTQzQTMgMyAwIDAgMSAxNi4xMzggMjJINy44NjJhMyAzIDAgMCAxLTIuOTkyLTIuNzg2TDQuMDAzIDcuMDdBMS4wMSAxLjAxIDAgMCAxIDQgN2ExIDEgMCAwIDEgMC0yaDMuMjhsLjU0My0xLjYzMkEyIDIgMCAwIDEgOS43MjEgMmg0LjU1OFpNOSAxMGExIDEgMCAwIDAtLjk5My44ODNMOCAxMXY2YTEgMSAwIDAgMCAxLjk5My4xMTdMMTAgMTd2LTZhMSAxIDAgMCAwLTEtMVptNiAwYTEgMSAwIDAgMC0xIDF2NmExIDEgMCAxIDAgMiAwdi02YTEgMSAwIDAgMC0xLTFabS0uNzItNkg5LjcybC0uMzMzIDFoNS4yMjZsLS4zMzQtMVoiLz48L2c+PC9zdmc+"
-                                alt="" />
-
-
+                            <button class="delete-button" type="button">
+                                <img class="delete-icon" src="images/MingcuteDelete2Fill.png" alt="icon-delete" />
+                            </button>
                         </td>
-                    </tr>
+                    </tr>--> 
                 </tbody>
             </table>
         </div>
     </main>
-
+<script src="../js/main.js"></script>
 </body>
 
 </html>
