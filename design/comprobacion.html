@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprobacion Loteria</title>
+    <link rel="stylesheet" href="comprobacion-loteria.css">
+    <script type="text/javascript">
+
+        function darFormaTabla() {
+            var tbody = document.createElement('tbody');
+            var table = document.getElementById("tablaLoteria");
+
+            for (var i = 1; i <= 6; i++) {
+                var tr = document.createElement("tr");
+                var tdNumero = document.createElement("td");
+                var tdPremio = document.createElement("td");
+                var tdResultado = document.createElement("td");
+
+                tr.appendChild(tdNumero);
+                tr.appendChild(tdResultado);
+                tr.appendChild(tdPremio);
+                tbody.appendChild(tr);
+            }
+
+            table.appendChild(tbody);
+        }
+
+
+
+        window.onload = function () {
+            darFormaTabla()
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Comprobacion de Loteria de Navidad</h1>
+        <button name="boton_salir" id="btnSalir">Salir</button>
+    </header>
+    <div id="contenedortabla">
+        <table id="tablaLoteria">
+            <thead>
+                <tr>
+                    <th>Numero</th>
+                    <th>Premio</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th colspan="2">TOTAL</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+
+</html>

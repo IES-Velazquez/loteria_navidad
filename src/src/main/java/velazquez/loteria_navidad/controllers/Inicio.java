@@ -1,4 +1,4 @@
-package velazquez.loteria_navidad;
+package velazquez.loteria_navidad.controllers;
 
 import java.io.*;
 
@@ -19,6 +19,7 @@ public class Inicio extends HttpServlet {
 
     logger.info("doGet");
 
-    request.getRequestDispatcher("WEB-INF/view/inicio.jsp").forward(request, response);
+//    request.getRequestDispatcher("WEB-INF/view/inicio.jsp").forward(request, response);
+    request.getRequestDispatcher("WEB-INF/test/test.jsp").forward(request, response);
   }
 }

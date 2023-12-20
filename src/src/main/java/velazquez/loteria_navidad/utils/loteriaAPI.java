@@ -1,4 +1,4 @@
-package velazquez.loteria_navidad;
+package velazquez.loteria_navidad.utils;
 
 import com.google.gson.Gson;
 import jakarta.servlet.ServletException;
