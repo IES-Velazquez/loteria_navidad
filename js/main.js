@@ -1,16 +1,14 @@
 function comprobarBoleto(){
     var faltaDato = document.createElement("p");
-    let texto = document.createElement;
+    let nodoTexto;
     let numBoleto = document.getElementById("inputComprobar").value;
     let divComprobar = document.getElementById("comprobacionNumero");
 
 
     if(numBoleto == ""){
-        texto = "Este campo no puede estar vacío";
-        faltaDato.appendChild(texto);
+        faltaDato.textContent = "Este campo no puede estar vacío";
     } else if(numBoleto.length<5){
-        texto = "El numero no esta completo";
-        faltaDato.appendChild(texto)
+        faltaDato.textContent = "El numero no esta completo";
     }
 
     divComprobar.appendChild(faltaDato);
