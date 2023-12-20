@@ -11,6 +11,9 @@
 <body>
 <h1>Resultados de la loteria de navidad
 </h1>
+<c:if test="${error!=null}">
+    <h2 id="error">${error!=null}</h2>
+</c:if>
 <form method="post">
     <label>Usuario<input type="text" name="usuario" id="usuario"></label>
     <label>Password<input type="password" name="pass", id="pass"></label>
