@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion Loteria</title>
+    <link rel="stylesheet" href="/css/css-user.css" type="text/css">
+
+</head>
+
+<body>
+    <header>
+        <nav id="encabezado-container">
+            <div id="encabezado-izq">
+                <div id="izq-img">
+                    <img src="img/SolarUserBold.png" alt="imagen-perfil">
+                    <div id="admin-title">
+                        <h2>--name User--</h2>
+                    </div>
+                </div>
+            </div>
+            <div id="encabezado-dcha">
+                <button id="logout-button" type="button">
+                    <img src="img/MdiLogoutVariant.png" alt="icon-salir">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <article class="espacio-b"></article>
+
+    <main>
+        <section id="divComprobar">
+            <article id="add">
+                <button id="btAnadir" type="button" class="bt">AÑADIR</button>
+            </article>
+            <article>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GRUPO</th>
+                            <th>NÚMERO</th>
+                            <th>SERIE</th>
+                            <th>CANTIDAD</th>
+                            <th>PARTICIPACIÓN</th>
+                            <th>BORRAR</th>
+                            <th>MODIFICAR</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rellenarNumeros">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="bt-td">
+                                <button type="button" class="bt-tabla">
+                                    <img src=
+                                    "img/MingcuteDelete2Fill.png" alt="icon-delete" />
+                                </button>
+                            </td>
+                            <td  class="bt-td">
+                                <button type="button" class="bt-tabla">
+                                    <img src="img/edit.png" alt="">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="bt-td">
+                                <button type="button" class="bt-tabla">
+                                    <img src=
+                                    "img/MingcuteDelete2Fill.png" alt="icon-delete" />
+                                </button>
+                            </td>
+                            <td  class="bt-td">
+                                <button type="button" class="bt-tabla">
+                                    <img src="img/edit.png" alt="">
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            <article id="verify">
+                <button type="button" class="bt">COMPROBAR</button>
+            </article>
+        </section>
+        <!-- <section > -->
+        <article id="annadir">
+            <form id="formulario">
+               <!-- Formulario de añadir  -->
+            </form>
+        </article>
+        <!-- </section> -->
+    </main>
+
+    <script src="../js/main.js"></script>
+
+    </body>
+
+</html>
