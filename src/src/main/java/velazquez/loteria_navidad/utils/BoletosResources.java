@@ -4,9 +4,7 @@ import com.google.gson.Gson;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import velazquez.loteria_navidad.dao.DAODecimoImpl;
+main
 import velazquez.loteria_navidad.models.Decimo;
 import velazquez.loteria_navidad.models.Premiado;
 import velazquez.loteria_navidad.models.Usuario;
@@ -214,5 +212,7 @@ public class BoletosResources {
     @Produces(MediaType.APPLICATION_JSON)
     public void deleteUser(Usuario usuario){
         //dao por hacer
+        DAOUsuario dao = new DAOUsuarioImpl();
+        dao.deleteUsuario(usuario);
     }
 }
