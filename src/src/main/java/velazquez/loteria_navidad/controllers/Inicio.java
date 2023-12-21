@@ -24,7 +24,7 @@ public class Inicio extends HttpServlet {
         logger.info("doGet");
 
 //        request.getRequestDispatcher("WEB-INF/view/inicio.jsp").forward(request, response);
-        request.getRequestDispatcher("WEB-INF/view/private/administrador.html").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/view/private/administrador.jsp").forward(request, response);
 //    request.getRequestDispatcher("WEB-INF/test/test.jsp").forward(request, response);
     }
 
