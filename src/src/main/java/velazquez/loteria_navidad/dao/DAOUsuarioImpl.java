@@ -5,10 +5,8 @@ import org.slf4j.LoggerFactory;
 import velazquez.loteria_navidad.db.PoolDBContext;
 import velazquez.loteria_navidad.models.Usuario;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class DAOUsuarioImpl implements DAOUsuario{
     static final Logger logger = LoggerFactory.getLogger(DAOUsuarioImpl.class);
@@ -30,6 +28,9 @@ public class DAOUsuarioImpl implements DAOUsuario{
 
             statement.execute();
             success = true;
+
+            statement.close();
+            con.close();
         } catch (SQLException e) {
             logger.error(e.getMessage());
         }
@@ -58,10 +59,45 @@ public class DAOUsuarioImpl implements DAOUsuario{
 
                 objetoUsuario = new Usuario(user, pass, role, nombre);
             }
+
+            statement.close();
+            con.close();
         } catch (SQLException e) {
             logger.error(e.getMessage());
         }
 
         return objetoUsuario;
+    }
+
+    @Override
+    public ArrayList<Usuario> getUsuarios() {
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+        Connection con;
+        Usuario usuario = null;
+
+        try {
+            String sql = "SELECT * FROM Usuarios";
+            PoolDBContext pool = new PoolDBContext();
+            con = pool.getConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()) {
+                String user = rs.getString("usuario");
+                String pass = rs.getString("pass");
+                String role = rs.getString("role");
+                String nombre = rs.getString("nombre");
+
+                usuario = new Usuario(user, pass, role, nombre);
+                usuarios.add(usuario);
+            }
+
+            statement.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
+
+        return usuarios;
     }
 }
