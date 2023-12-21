@@ -3,10 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
-    <display-name>loteria_navidad</display-name>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
 
     <resource-ref>
         <description>Pool conexiones MariaDB</description>
@@ -15,9 +11,15 @@
         <res-auth>Container</res-auth>
     </resource-ref>
 
+
+    <display-name>loteria_navidad</display-name>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
     <servlet>
         <servlet-name>Inicio</servlet-name>
-        <servlet-class>velazquez.loteria_navidad.Inicio</servlet-class>
+        <servlet-class>velazquez.loteria_navidad.controllers.Inicio</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -31,6 +33,18 @@
         <url-pattern>/css/*</url-pattern>
         <url-pattern>/js/*</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Registro</servlet-name>
+        <servlet-class>velazquez.loteria_navidad.controllers.RegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Registro</servlet-name>
+        <url-pattern>/registro</url-pattern>
+    </servlet-mapping>
+
+
 <!--   Jersey Servlet definition -->
     <servlet>
         <servlet-name>Jersey Rest Service</servlet-name>
@@ -39,11 +53,7 @@
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>velazquez.loteria_navidad.utils</param-value>
         </init-param>
-        <!-- Esto lo he añadido para ver si así funciona el jackson-->
-<!--        <init-param>-->
-<!--            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>-->
-<!--            <param-value>true</param-value>-->
-<!--        </init-param>-->
+
     </servlet>
 
     <servlet-mapping>

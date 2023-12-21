@@ -6,12 +6,20 @@
 <head>
     <script src="js/app.js"></script>
     <title>Loteria Navidad</title>
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <h1>Resultados de la loteria de navidad
 </h1>
-
-<div id="results"></div>
-
+<c:if test="${error!=null}">
+    <h2 id="error">${error!=null}</h2>
+</c:if>
+<form method="post">
+    <label>Usuario<input type="text" name="usuario" id="usuario"></label>
+    <label>Password<input type="password" name="pass" id="pass"></label>
+</form>
+<div>
+    <a href="${pageContext.request.contextPath}/RegisterServlet">No te has reguistrado aún</a>
+</div>
 </body>
 </html>

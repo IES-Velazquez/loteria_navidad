@@ -1,0 +1,107 @@
+/* CSS REGISTRO*/
+
+header {
+    background-color: #386641;
+    margin: -8px;
+}
+
+header h2 {
+    color: white;
+    font-size: 2em;
+    margin-top: .2em;
+    padding: .8em;
+    text-align: center;
+}
+
+.encabezado-container{
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    margin: 0 auto;
+    padding: 20px 2% 20px 2%;
+    color: white;
+}
+
+
+body{
+    background-color: #F2E8CF;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*Tabla de registro*/
+
+#table {
+    text-align: center;
+}
+
+#table table {
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    width: 400px;
+}
+
+th {
+    background-color: #BC4749;
+    color: #ffff;
+}
+
+th,
+td {
+    padding: 20px;
+    text-align: center;
+    height: 1em;
+    font-size:medium;
+    font-weight: bold;
+}
+
+td{
+    background-color: #ffff;
+}
+
+/* Botones */
+
+.btn-registro-registrar{
+    background-color: #6A994E;
+    width: 150px;
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin:10px;
+    color:white;
+}
+
+.btn-registro-atras{
+    background-color:#BC4749;
+    width: 150px;
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin:10px;
+    color:white;
+}
+
+
+
+.btn-registro-registrar:hover {
+    background-color: #A7C957; /* Color de fondo al pasar el ratón sobre el botón */
+}
+
+.btn-registro-atras:hover{
+    background-color:#f65e60;
+}
