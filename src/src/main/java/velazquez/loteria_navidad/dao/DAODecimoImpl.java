@@ -114,6 +114,8 @@ public class DAODecimoImpl implements DAODecimo {
             while (rs.next()) {
                 restantes = LIMITE - rs.getInt(1);
             }
+            System.out.println(restantes);
+            restantes= LIMITE - restantes;
 
             statement.close();
             con.close();

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css-administrador.css">
     <title>Inicio Administrador</title>
 </head>
 
@@ -13,7 +13,7 @@
         <nav id="encabezado-container">
             <div id="encabezado-izq">
                 <div id="izq-img">
-                    <img src="images/SolarUserBold.png" alt="imagen-perfil">
+                    <img src="img/SolarUserBold.png" alt="imagen-perfil">
                     <div id="admin-title">
                         <h2>Administrador</h2>
                         <!--<h3>Aquí iría la última conexión del admin</h3>-->
@@ -22,7 +22,7 @@
             </div>
             <div id="encabezado-dcha">
                 <button id="logout-button" type="button">
-                    <img src="images/MdiLogoutVariant.png" alt="icon-salir">
+                    <img src="img/MdiLogoutVariant.png" alt="icon-salir">
                 </button>
             </div>
         </nav>
@@ -33,7 +33,7 @@
             <form>
                 <div class="input-field">
                     <label id="label-icon" for="search">
-                        <img src="images/search.png" alt="icon-search">
+                        <img src="img/search.png" alt="icon-search">
                     </label>
                     <input id="search" type="search" required placeholder="Buscar usuario">
                     
