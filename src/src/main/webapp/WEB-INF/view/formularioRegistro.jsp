@@ -30,6 +30,9 @@
                 <c:if test="${error!=null}">
                     <p class="text-danger text-small mt-3">${error}</p>
                 </c:if>
+                <label for="confirmarPassword" class="form-label mt-3">Confirmar Contraseña</label>
+                <input type="password" class="form-control" id="confirmarPassword" name="confirmarPassword" required>
+                <br>
                 <input type="submit" class="btn btn-primary w-100 mt-3" value="Registrarse"/>
             </form>
         </div>
