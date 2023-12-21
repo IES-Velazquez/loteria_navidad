@@ -7,6 +7,7 @@ import jakarta.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import velazquez.loteria_navidad.dao.DAODecimoImpl;
+import velazquez.loteria_navidad.dao.DAOUsuarioImpl;
 import velazquez.loteria_navidad.models.Decimo;
 import velazquez.loteria_navidad.models.Premiado;
 import velazquez.loteria_navidad.models.Usuario;
@@ -107,14 +108,19 @@ public class BoletosResources {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response userData(Usuario usuario){
-        //Template
-        usuario.setNombre("manolo");
-        usuario.setPass("sfsdf");
-        usuario.setRole("user");
+    public Response userData(Usuario to_check){
+        DAOUsuarioImpl daoUsuario = new DAOUsuarioImpl();
+        Usuario usuario = daoUsuario.getUsuario(to_check.getUsuario());
         Gson gson = new Gson();
-        String jsonString = gson.toJson(usuario);
-        return Response.status(Response.Status.OK).entity(jsonString).build();
+        if(usuario!=null){
+            String jsonString = gson.toJson(usuario);
+            return Response.status(Response.Status.OK).entity(jsonString).build();
+        }else{
+            Map respuesta = new HashMap();
+            respuesta.put("error", "Usuario no encotrado");
+            String jsonString = gson.toJson(respuesta);
+            return Response.status(Response.Status.OK).entity(jsonString).build();
+        }
     }
 
 
@@ -135,16 +141,6 @@ public class BoletosResources {
 
         DAODecimoImpl daoDecimo = new DAODecimoImpl();
         int cantidad = daoDecimo.availableDecimos(boleto.getNumero());
-        //        Este bloque sirve como template para probar la api hasta que se haga el resto
-//        ArrayList<Premiado> premiados = new ArrayList<>();
-//        premiados.add(new Premiado(23234, 1, 234.34));
-//        premiados.add(new Premiado(23562, 2, 134.34));
-//        premiados.add(new Premiado(99823, 3, 34.34));
-//        premiados.add(new Premiado(23, 4, 4.34));
-//
-//        Gson gson = new Gson();
-//        String jsonString = gson.toJson(premiados);
-//        return Response.status(Response.Status.OK).entity(jsonString).build();
         Map respuesta = new HashMap<>();
         respuesta.put("cantidad", cantidad);
         respuesta.put("numero", boleto.getNumero());
@@ -162,7 +158,11 @@ public class BoletosResources {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public void addBoleto(Decimo decimo){
-        //Dao por hacer
+        DAODecimoImpl daoDecimo = new DAODecimoImpl();
+        Boolean op = daoDecimo.createDecimo(decimo);
+        if(op){
+
+        }
     }
     /*
     Este bloque borra un Decimo, es necesario pasar los atributos de numero y usuario
