@@ -31,6 +31,8 @@ public class DAODecimoImpl implements DAODecimo {
 
         PoolDBContext pool = new PoolDBContext();
         Connection con = pool.getConnection();
+        DAOUsuarioImpl daoUsuario = new DAOUsuarioImpl();
+        Usuario usuario = daoUsuario.getUsuario(decimo.getUsuario());
 
         // ya existen décimos para el usuario indicado (update)
         if (numDecimosFromUser(decimo) > 0) {
@@ -39,7 +41,9 @@ public class DAODecimoImpl implements DAODecimo {
                         "SET cantidad=? " +
                         "WHERE numero=? AND usuario=?;";
                 statement = con.prepareStatement(sql);
-                statement.setInt(1, decimosFromUser(decimo));
+                statement.setInt(1, (numDecimosFromUser(decimo)+decimo.getCantidad()));
+                statement.setInt(2, decimo.getNumero());
+                statement.setString(3, decimo.getUsuario());
 
                 statement.execute();
                 success = true;
@@ -198,5 +202,4 @@ public class DAODecimoImpl implements DAODecimo {
 
         return numBoletos;
     }
-}
 }
