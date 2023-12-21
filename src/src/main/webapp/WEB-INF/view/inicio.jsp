@@ -17,6 +17,7 @@
 <form method="post">
     <label>Usuario<input type="text" name="usuario" id="usuario"></label>
     <label>Password<input type="password" name="pass" id="pass"></label>
+    <input type="submit" class="btn btn-primary w-100 mt-3" value="Iniciar sesion"/>
 </form>
 <div>
     <a href="${pageContext.request.contextPath}/RegisterServlet">No te has reguistrado aún</a>

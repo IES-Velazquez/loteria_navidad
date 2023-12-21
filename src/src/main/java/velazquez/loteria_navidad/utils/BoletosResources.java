@@ -5,6 +5,8 @@ import com.google.gson.JsonObject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import velazquez.loteria_navidad.dao.DAOUsuario;
+import velazquez.loteria_navidad.dao.DAOUsuarioImpl;
 import velazquez.loteria_navidad.models.Decimo;
 import velazquez.loteria_navidad.models.Premiado;
 import velazquez.loteria_navidad.models.Usuario;
@@ -211,5 +213,7 @@ public class BoletosResources {
     @Produces(MediaType.APPLICATION_JSON)
     public void deleteUser(Usuario usuario){
         //dao por hacer
+        DAOUsuario dao = new DAOUsuarioImpl();
+        dao.deleteUsuario(usuario);
     }
 }

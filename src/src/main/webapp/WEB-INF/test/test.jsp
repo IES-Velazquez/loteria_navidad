@@ -26,7 +26,6 @@
             .then(response=>call(response))
   }
 
-
   function llamadaservidorUser(){
     var url = "http://localhost:8081/loteria_navidad_war/rest/json/user_boletos"
     var method = "POST"
@@ -34,6 +33,7 @@
     var call = recibeServidor
     AjaxPeticion(url, method, call, params)
   }
+
   function llamadaservidorBoleto(){
       var url = "http://localhost:8081/loteria_navidad_war/rest/json/boletos_avaliable"
       var method = "POST"
