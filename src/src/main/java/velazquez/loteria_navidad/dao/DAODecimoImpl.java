@@ -31,18 +31,19 @@ public class DAODecimoImpl implements DAODecimo {
         int restantes = 0;
 
         try {
-            String sql = "SELECT ?-SUM(cantidad) FROM Decimos WHERE numero=?";
+            String sql = "SELECT SUM(cantidad) FROM Decimos WHERE numero=?";
             PoolDBContext pool = new PoolDBContext();
             con = pool.getConnection();
 
             PreparedStatement statement = con.prepareStatement(sql);
-            statement.setInt(1, LIMITE);
-            statement.setInt(2, numero);
+//            statement.setInt(1, LIMITE);
+            statement.setInt(1, numero);
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
                 restantes = rs.getInt(1);
             }
+            System.out.println(restantes);
 
         } catch (SQLException e) {
             logger.error(e.getMessage());
