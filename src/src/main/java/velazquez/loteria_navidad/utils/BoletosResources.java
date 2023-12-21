@@ -1,10 +1,12 @@
 package velazquez.loteria_navidad.utils;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import velazquez.loteria_navidad.dao.DAODecimoImpl;
 import velazquez.loteria_navidad.models.Decimo;
 import velazquez.loteria_navidad.models.Premiado;
 import velazquez.loteria_navidad.models.Usuario;
@@ -19,6 +21,7 @@ Para acceder a a la API es necesario incluir el path de la aplicación +/rest/js
  */
 @Path("/json")
 public class BoletosResources {
+    static final Logger logger = LoggerFactory.getLogger(BoletosResources.class);
     /*
     Retoma los 4 primeros premiados
      */
@@ -130,8 +133,8 @@ public class BoletosResources {
     @Produces(MediaType.APPLICATION_JSON)
     public Response checkNumber(Decimo boleto){
 
-
-        System.out.println(boleto);
+        DAODecimoImpl daoDecimo = new DAODecimoImpl();
+        int cantidad = daoDecimo.availableDecimos(boleto.getNumero());
         //        Este bloque sirve como template para probar la api hasta que se haga el resto
 //        ArrayList<Premiado> premiados = new ArrayList<>();
 //        premiados.add(new Premiado(23234, 1, 234.34));
@@ -142,11 +145,11 @@ public class BoletosResources {
 //        Gson gson = new Gson();
 //        String jsonString = gson.toJson(premiados);
 //        return Response.status(Response.Status.OK).entity(jsonString).build();
-        Map cantidad = new HashMap<>();
-        cantidad.put("cantidad", 1);
-        cantidad.put("numero", boleto.getNumero());
+        Map respuesta = new HashMap<>();
+        respuesta.put("cantidad", cantidad);
+        respuesta.put("numero", boleto.getNumero());
         Gson gson = new Gson();
-        String jsonString = gson.toJson(cantidad);
+        String jsonString = gson.toJson(respuesta);
         return Response.status(Response.Status.OK).entity(jsonString).build();
     }
     /*
