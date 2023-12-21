@@ -214,5 +214,7 @@ public class BoletosResources {
     @Produces(MediaType.APPLICATION_JSON)
     public void deleteUser(Usuario usuario){
         //dao por hacer
+        DAOUsuarioImpl dao = new DAOUsuarioImpl();
+        dao.deleteUsuario(usuario);
     }
 }
