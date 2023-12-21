@@ -11,43 +11,43 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Arrays;
 
-public class PoolDBContext {
-  static final Logger logger = LoggerFactory.getLogger(PoolDBContext.class);
+  public class PoolDBContext {
+    static final Logger logger = LoggerFactory.getLogger(PoolDBContext.class);
 
-  private static BasicDataSource dataSource;
+    private static BasicDataSource dataSource;
 
-  public PoolDBContext() {
-    initDataSource();
-  }
-
-  private void initDataSource() {
-    Context initContext;
-
-    try {
-      logger.info("PoolDBContext init");
-      initContext = new InitialContext();
-
-      dataSource = (BasicDataSource) initContext.lookup("java:/comp/env/jdbc/ConexionMariadb");
-      logger.info("PoolDBContext init OK");
-    } catch (NamingException e) {
-      logger.error(e.getMessage());
-      logger.error(Arrays.toString(e.getStackTrace()));
-    }
-  }
-
-  public Connection getConnection() {
-    logger.info("PoolDBContext getConnection");
-    Connection connection = null;
-
-    try {
-      connection = dataSource.getConnection();
-      logger.info("PoolDBContext getConnection OK");
-    } catch (SQLException e) {
-      logger.error(e.getMessage());
-      logger.error(e.getCause().getMessage());
-      logger.error(Arrays.toString(e.getStackTrace()));
+    public PoolDBContext() {
+      initDataSource();
     }
 
-    return connection;
+    private void initDataSource() {
+      Context initContext;
+
+      try {
+        logger.info("PoolDBContext init");
+        initContext = new InitialContext();
+
+        dataSource = (BasicDataSource) initContext.lookup("java:/comp/env/jdbc/ConexionMariadb");
+        logger.info("PoolDBContext init OK");
+      } catch (NamingException e) {
+        logger.error(e.getMessage());
+        logger.error(Arrays.toString(e.getStackTrace()));
+      }
+    }
+
+    public Connection getConnection() {
+      logger.info("PoolDBContext getConnection");
+      Connection connection = null;
+
+      try {
+        connection = dataSource.getConnection();
+        logger.info("PoolDBContext getConnection OK");
+      } catch (SQLException e) {
+        logger.error(e.getMessage());
+        logger.error(e.getCause().getMessage());
+        logger.error(Arrays.toString(e.getStackTrace()));
+      }
+
+      return connection;
+    }
   }
-}

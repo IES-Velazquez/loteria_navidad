@@ -14,7 +14,7 @@ public class DAOUsuarioImpl implements DAOUsuario{
     @Override
     public boolean register(String user, String password, String nombre) {
         boolean success = false;
-        Connection con;
+        Connection con = null;
 
         try {
             String sql = "INSERT INTO Usuarios VALUES (?, ?, 'user', ?)";
@@ -26,7 +26,7 @@ public class DAOUsuarioImpl implements DAOUsuario{
             statement.setString(2, password);
             statement.setString(3, nombre);
 
-            statement.execute();
+            ResultSet rs = statement.executeQuery();
             success = true;
 
             statement.close();
@@ -97,7 +97,29 @@ public class DAOUsuarioImpl implements DAOUsuario{
         } catch (SQLException e) {
             logger.error(e.getMessage());
         }
-
         return usuarios;
+    }
+
+    public boolean deleteUsuario(Usuario usuario){
+        boolean success = false;
+        Connection con;
+
+        try {
+            String sql = "DELETE FROM Usuarios WHERE usuario = ?";
+            PoolDBContext pool = new PoolDBContext();
+            con = pool.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, usuario.getUsuario());
+
+            statement.execute();
+            success = true;
+
+            statement.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
+    return success;
     }
 }

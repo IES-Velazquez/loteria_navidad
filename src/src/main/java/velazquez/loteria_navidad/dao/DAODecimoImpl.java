@@ -7,8 +7,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import velazquez.loteria_navidad.models.Usuario;
 
 public class DAODecimoImpl implements DAODecimo {
     static final Logger logger = LoggerFactory.getLogger(DAODecimoImpl.class);
@@ -30,7 +33,7 @@ public class DAODecimoImpl implements DAODecimo {
         Connection con = pool.getConnection();
 
         // ya existen décimos para el usuario indicado (update)
-        if (decimosFromUser(decimo) > 0) {
+        if (numDecimosFromUser(decimo) > 0) {
             try {
                 sql = "UPDATE FROM Decimos " +
                         "SET cantidad=? " +
@@ -124,7 +127,51 @@ public class DAODecimoImpl implements DAODecimo {
     }
 
     @Override
-    public int decimosFromUser(Decimo decimo) {
+    public ArrayList<Decimo> decimosFromUser(Usuario usuario) {
+        Connection con = null;
+        ArrayList<Decimo> decimos = new ArrayList<Decimo>();
+
+        try {
+            String sql = "SELECT * FROM Decimos AND usuario=?";
+            PoolDBContext pool = new PoolDBContext();
+            con = pool.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, usuario.getUsuario());
+
+            ResultSet rs = statement.executeQuery();
+
+            Decimo decimo;
+            int numero;
+            String grupo;
+            int cantidad;
+            String fraccion;
+            String serie;
+            String user;
+
+            while (rs.next()) {
+                numero = rs.getInt("numero");
+                grupo = rs.getString("grupo");
+                cantidad = rs.getInt("cantidad");
+                fraccion = rs.getString("fraccion");
+                serie = rs.getString("serie");
+                user = rs.getString("usuario");
+
+                decimo = new Decimo(numero,grupo,cantidad,fraccion,serie,user);
+                decimos.add(decimo);
+            }
+
+            statement.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
+
+        return decimos;
+    }
+
+    @Override
+    public int numDecimosFromUser(Decimo decimo) {
         Connection con = null;
         int numBoletos = 0;
 
@@ -151,4 +198,5 @@ public class DAODecimoImpl implements DAODecimo {
 
         return numBoletos;
     }
+}
 }

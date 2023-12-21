@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario</title>
-    <link rel="stylesheet" href="css-user.css">
+    <title>Administracion Loteria</title>
+    <link rel="stylesheet" href="/css/css-user.css" type="text/css">
 
 </head>
 
@@ -14,7 +14,7 @@
         <nav id="encabezado-container">
             <div id="encabezado-izq">
                 <div id="izq-img">
-                    <img src="images/SolarUserBold.png" alt="imagen-perfil">
+                    <img src="img/SolarUserBold.png" alt="imagen-perfil">
                     <div id="admin-title">
                         <h2>--name User--</h2>
                     </div>
@@ -22,7 +22,7 @@
             </div>
             <div id="encabezado-dcha">
                 <button id="logout-button" type="button">
-                    <img src="images/MdiLogoutVariant.png" alt="icon-salir">
+                    <img src="img/MdiLogoutVariant.png" alt="icon-salir">
                 </button>
             </div>
         </nav>
@@ -58,12 +58,12 @@
                             <td class="bt-td">
                                 <button type="button" class="bt-tabla">
                                     <img src=
-                                    "images/MingcuteDelete2Fill.png" alt="icon-delete" />
+                                    "img/MingcuteDelete2Fill.png" alt="icon-delete" />
                                 </button>
                             </td>
                             <td  class="bt-td">
                                 <button type="button" class="bt-tabla">
-                                    <img src="images/edit.png" alt="">
+                                    <img src="img/edit.png" alt="">
                                 </button>
                             </td>
                         </tr>
@@ -76,12 +76,12 @@
                             <td class="bt-td">
                                 <button type="button" class="bt-tabla">
                                     <img src=
-                                    "images/MingcuteDelete2Fill.png" alt="icon-delete" />
+                                    "img/MingcuteDelete2Fill.png" alt="icon-delete" />
                                 </button>
                             </td>
                             <td  class="bt-td">
                                 <button type="button" class="bt-tabla">
-                                    <img src="images/edit.png" alt="">
+                                    <img src="img/edit.png" alt="">
                                 </button>
                             </td>
                         </tr>
@@ -103,6 +103,6 @@
 
     <script src="../js/main.js"></script>
 
-    <body>
+    </body>
 
 </html>
