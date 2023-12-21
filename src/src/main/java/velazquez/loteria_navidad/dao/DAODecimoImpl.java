@@ -104,6 +104,55 @@ public class DAODecimoImpl implements DAODecimo {
     }
 
     @Override
+    public ArrayList<Decimo> getDecimos() {
+        Connection con = null;
+        ArrayList<Decimo> decimos = null;
+        try {
+            String sql = "SELECT * FROM Decimos";
+            PoolDBContext pool = new PoolDBContext();
+            con = pool.getConnection();
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            ResultSet rs = statement.executeQuery();
+
+            Decimo decimo;
+            int numero;
+            String grupo;
+            int cantidad;
+            String fraccion;
+            String serie;
+            String user;
+            decimos = new ArrayList<>();
+            while (rs.next()) {
+                numero = rs.getInt("numero");
+                grupo = rs.getString("grupo");
+                cantidad = rs.getInt("cantidad");
+                fraccion = rs.getString("fraccion");
+                serie = rs.getString("serie");
+                user = rs.getString("usuario");
+
+                decimo = new Decimo(numero,grupo,cantidad,fraccion,serie,user);
+                decimos.add(decimo);
+            }
+
+            statement.close();
+
+        }catch (SQLException e){
+            logger.error(e.getMessage());
+        }finally {
+            try{
+                if(con!=null){
+                    con.close();
+                }
+            }catch (SQLException e){
+                logger.error(e.getMessage());
+            }
+        }
+        return null;
+    }
+
+    @Override
     public int availableDecimos(int numero) {
         Connection con;
         final int LIMITE = 20;

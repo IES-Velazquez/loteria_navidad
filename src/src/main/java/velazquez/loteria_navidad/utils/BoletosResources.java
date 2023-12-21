@@ -213,7 +213,7 @@ public class BoletosResources {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getBoletos(){
         DAODecimoImpl daoDecimo = new DAODecimoImpl();
-        List<Decimo> decimos = null;
+        List<Decimo> decimos = daoDecimo.getDecimos();
         Gson gson = new Gson();
         String jsonString = gson.toJson(decimos);
         return Response.status(Response.Status.OK).entity(jsonString).build();
