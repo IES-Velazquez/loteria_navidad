@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public interface DAODecimo {
     public boolean createDecimo(Decimo decimo);
     public boolean deleteDecimo(Decimo decimo);
+    ArrayList<Decimo> getDecimos();
     public int availableDecimos(int numero);
     public ArrayList<Decimo> decimosFromUser(Usuario usuario);
     public int numDecimosFromUser(Decimo decimo);
