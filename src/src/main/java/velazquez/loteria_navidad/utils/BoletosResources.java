@@ -92,10 +92,10 @@ public class BoletosResources {
     @Produces(MediaType.APPLICATION_JSON)
     public Response userBoletos(Usuario user){
 
-        System.out.println(user);
-        //        Este bloque sirve como template para probar la api hasta que se haga el resto
-        ArrayList<Decimo> decimos = new ArrayList<>();
-        decimos.add(new Decimo(1234, "alguno", 1, "fraccion", "serie", "manolo"));
+        DAODecimoImpl daoDecimo = new DAODecimoImpl();
+        List<Decimo> decimos = daoDecimo.decimosFromUser(user);
+
+
         Gson gson = new Gson();
         String jsonString = gson.toJson(decimos);
         return Response.status(Response.Status.OK).entity(jsonString).build();
@@ -157,12 +157,18 @@ public class BoletosResources {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void addBoleto(Decimo decimo){
+    public Response addBoleto(Decimo decimo){
         DAODecimoImpl daoDecimo = new DAODecimoImpl();
         Boolean op = daoDecimo.createDecimo(decimo);
+        Map respuesta = new HashMap<>();
         if(op){
-
+            respuesta.put("create", true);
+        }else{
+            respuesta.put("create", false);
         }
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(respuesta);
+        return Response.status(Response.Status.OK).entity(jsonString).build();
     }
     /*
     Este bloque borra un Decimo, es necesario pasar los atributos de numero y usuario
@@ -171,8 +177,18 @@ public class BoletosResources {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void deleteBoleto(Decimo decimo){
-        //dao por hacer
+    public Response deleteBoleto(Decimo decimo){
+        DAODecimoImpl daoDecimo = new DAODecimoImpl();
+        Boolean op = daoDecimo.deleteDecimo(decimo);
+        Map respuesta = new HashMap<>();
+        if(op){
+            respuesta.put("delete", true);
+        }else{
+            respuesta.put("deltete", false);
+        }
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(respuesta);
+        return Response.status(Response.Status.OK).entity(jsonString).build();
     }
 
     /*
@@ -183,10 +199,8 @@ public class BoletosResources {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers(){
-        //bloque provisional hasta que se cree el dao
-        ArrayList<Usuario> users = new ArrayList<>();
-        users.add(new Usuario("manolo", "xxxxx", "admin", "manolo lamas"));
-
+        DAOUsuarioImpl daoUsuario = new DAOUsuarioImpl();
+        List<Usuario> users = daoUsuario.getUsuarios();
         Gson gson = new Gson();
         String jsonString = gson.toJson(users);
         return Response.status(Response.Status.OK).entity(jsonString).build();
@@ -198,9 +212,8 @@ public class BoletosResources {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getBoletos(){
-        //        Este bloque sirve como template para probar la api hasta que se haga el resto
-        ArrayList<Decimo> decimos = new ArrayList<>();
-        decimos.add(new Decimo(1234, "alguno", 1, "fraccion", "serie", "manolo"));
+        DAODecimoImpl daoDecimo = new DAODecimoImpl();
+        List<Decimo> decimos = null;
         Gson gson = new Gson();
         String jsonString = gson.toJson(decimos);
         return Response.status(Response.Status.OK).entity(jsonString).build();
@@ -212,9 +225,17 @@ public class BoletosResources {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void deleteUser(Usuario usuario){
-        //dao por hacer
+    public Response deleteUser(Usuario usuario){
         DAOUsuarioImpl dao = new DAOUsuarioImpl();
-        dao.deleteUsuario(usuario);
+        Boolean op = dao.deleteUsuario(usuario);
+        HashMap respuesta = new HashMap<>();
+        if(op){
+            respuesta.put("delete", true);
+        }else{
+            respuesta.put("delete", true);
+        }
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(respuesta);
+        return Response.status(Response.Status.OK).entity(jsonString).build();
     }
 }
