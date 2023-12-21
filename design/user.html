@@ -1,117 +1,108 @@
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title>Administracion Loteria</title>
-  
-</head>
-
-<body>
-  <header>
-    <nav id="encabezado-container">
-        <div id="encabezado-izq">
-            <div id="izq-img">
-                <img src="images/SolarUserBold.png" alt="imagen-perfil">
-                <div id="admin-title">
-                    <h2>Administrador</h2>
-                    <h3>Aquí iría la última conexión del admin</h3>
-                </div>
-            </div>
-        </div>
-        <div id="encabezado-dcha">
-            <button id="logout-button" type="button">
-                <img src="images/MdiLogoutVariant.png" alt="icon-salir">
-            </button>
-        </div>
-    </nav>
-</header>
-  <div id="divComprobar">
-    <button id="btAnadir" class="bt">AÑADIR</button><button id="btBorrar" class="bt">BORRAR</button>
-    <table>
-      <thead>
-        <td>GRUPO</td>
-        <td>NÚMERO</td>
-        <td>CANTIDAD</td>
-        <td>PARTICIPACIÓN</td>
-      </thead>
-      <tbody>
-        <td></td>
-        <td></td>
-        <td><button id="contMin" class="cont">-</button><input id="cant1" type="text" value="1"><button id="contMin" class="cont">+</button></td>
-        <td></td>
-      </tbody>
-    </table>
-    <button class="bt">COMPROBAR</button>
-  </div>
-  <div id="comprobacionNumero">
-    <form id="for">
-      <label>número</label><input id="inputComprobar"><button type="button" class="bt" id="btComprobar">COMPROBAR BOLETO</button>
-      <label>cantidad</label><input id="inputCantidad">
-      <label>participacion</label><input id="inputParticipacion">%
-      <button class="bt" id="btConfirmar">CONFIRMAR</button>
-    </form>
-  </div>
-  <script src="../js/main.js"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administracion Loteria</title>
-  <link rel="stylesheet" href="css-user.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion Loteria</title>
+    <link rel="stylesheet" href="css-users.css">
 
 </head>
+
 <body>
-  <header>
-    <nav id="encabezado-container">
-        <div id="encabezado-izq">
-            <div id="izq-img">
-                <img src="images/SolarUserBold.png" alt="imagen-perfil">
-                <div id="admin-title">
-                    <h2>--name User--</h2>
+    <header>
+        <nav id="encabezado-container">
+            <div id="encabezado-izq">
+                <div id="izq-img">
+                    <img src="images/SolarUserBold.png" alt="imagen-perfil">
+                    <div id="admin-title">
+                        <h2>--name User--</h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="encabezado-dcha">
-            <button id="logout-button" type="button">
-                <img src="images/MdiLogoutVariant.png" alt="icon-salir">
-            </button>
-        </div>
-    </nav>
-</header>
+            <div id="encabezado-dcha">
+                <button id="logout-button" type="button">
+                    <img src="images/MdiLogoutVariant.png" alt="icon-salir">
+                </button>
+            </div>
+        </nav>
+    </header>
 
-<main>
-  <div id="divComprobar">
-    <button id="btAnadir" class="bt">AÑADIR</button><button id="btBorrar" class="bt">BORRAR</button>
-    <table>
-      <thead>
-        <td>GRUPO</td>
-        <td>NÚMERO</td>
-        <td>CANTIDAD</td>
-        <td>PARTICIPACIÓN</td>
-      </thead>
-      <tbody>
-        <td></td>
-        <td></td>
-        <td><button id="contMin" class="cont">-</button><input id="cant1" type="text" value="1"><button id="contMin" class="cont">+</button></td>
-        <td></td>
-      </tbody>
-    </table>
-    <button class="bt">COMPROBAR</button>
-  </div>
-  <div id="comprobacionNumero">
-    <form id="for">
-      <label>número</label><input id="inputComprobar"><button type="button" class="bt" id="btComprobar">COMPROBAR BOLETO</button>
-      <label>cantidad</label><input id="inputCantidad">
-      <label>participacion</label><input id="inputParticipacion">%
-      <button class="bt" id="btConfirmar">CONFIRMAR</button>
-    </form>
-  </div>
-</main>
-<script src="../js/main.js"></script>
-<body>
+    <article class="espacio-b"></article>
+
+    <main>
+        <section id="divComprobar">
+            <article id="add">
+                <button id="btAnadir" type="button" class="bt">AÑADIR</button>
+            </article>
+            <article>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GRUPO</th>
+                            <th>NÚMERO</th>
+                            <th>SERIE</th>
+                            <th>CANTIDAD</th>
+                            <th>PARTICIPACIÓN</th>
+                            <th>BORRAR</th>
+                            <th>MODIFICAR</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rellenarNumeros">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="bt-td">
+                                <button type="button" class="bt-tabla">
+                                    <img src=
+                                    "images/MingcuteDelete2Fill.png" alt="icon-delete" />
+                                </button>
+                            </td>
+                            <td  class="bt-td">
+                                <button type="button" class="bt-tabla">
+                                    <img src="images/edit.png" alt="">
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="bt-td">
+                                <button type="button" class="bt-tabla">
+                                    <img src=
+                                    "images/MingcuteDelete2Fill.png" alt="icon-delete" />
+                                </button>
+                            </td>
+                            <td  class="bt-td">
+                                <button type="button" class="bt-tabla">
+                                    <img src="images/edit.png" alt="">
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            <article id="verify">
+                <button type="button" class="bt">COMPROBAR</button>
+            </article>
+        </section>
+        <!-- <section > -->
+        <article id="annadir">
+            <form id="formulario">
+               <!-- Formulario de añadir  -->
+            </form>
+        </article>
+        <!-- </section> -->
+    </main>
+
+    <script src="../js/main.js"></script>
+
+    <body>
+
 </html>
