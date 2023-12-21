@@ -44,6 +44,7 @@ public class DAODecimoImpl implements DAODecimo {
                 restantes = rs.getInt(1);
             }
             System.out.println(restantes);
+            restantes= LIMITE - restantes;
 
         } catch (SQLException e) {
             logger.error(e.getMessage());
