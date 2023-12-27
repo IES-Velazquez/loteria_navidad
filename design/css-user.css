@@ -3,7 +3,7 @@ header {
     margin: -8px;
 }
 
-body{
+body {
     background-color: #F2E8CF;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -36,30 +36,31 @@ body{
     /* padding: 0 0 0 2%; */
 }
 
-#encabezado-dcha img, .bt-tabla img{
+#encabezado-dcha img,
+.bt-tabla img {
     width: 3vw;
     height: auto;
 }
 
-#encabezado-dcha button{
+#encabezado-dcha button {
     background-color: #386641;
     border-radius: 0.75rem;
     padding: .5em;
     border: none;
 }
 
-#encabezado-dcha button:hover{
+#encabezado-dcha button:hover {
     background-color: #6A994E;
 }
 
-main{
+main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-#divComprobar{
+#divComprobar {
     margin: 1em;
 }
 
@@ -90,11 +91,11 @@ th {
     border: 1px solid #ddd;
 }
 
-#rellenarNumeros tr:hover{
+#rellenarNumeros tr:hover {
     background-color: #c9c8c8;
 }
 
-.bt{
+.bt {
     background-color: #386641;
     border: none;
     cursor: pointer;
@@ -109,23 +110,23 @@ th {
 
 }
 
-.bt:hover{
+.bt:hover {
     background-color: #6a994e;
 }
 
-#add{
+#add {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#verify{
+#verify {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.bt-tabla{
+.bt-tabla {
     border: none;
     cursor: pointer;
     transition: all .25s;
@@ -135,88 +136,119 @@ th {
     height: 100%;
 }
 
-.bt-td{
+.bt-td {
     padding: 0;
     border: 1px solid white;
 }
 
-.bt-tabla:hover{
+.bt-tabla:hover {
     background-color: #6a994e;
+}
+
+/*Mostrar elementos*/
+
+.ver {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*Div alerta y formulario añadir*/
+
+#confirmacion {
+    visibility: hidden;  
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    z-index: 1;
+    background-color: white;
+    border-radius: 15px;
+    padding: 2em 3em;
+    color: #bc4749;
+    border: 2px solid #386641;
+    transition: all .25s;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.conf-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
 }
 
 /*Formulario*/
 
 #form-loteria {
-            visibility: hidden; 
-            position: absolute;
-            top: 20%;
-            left: 45%;
-            z-index: 1;
-            background-color: #b1c77c;
-            border: 3px solid #386641;
-            border-radius: 15px;
-            padding: 2em 3em;
-            color: black;
-            transition: all .25s;
-        }
+    visibility: hidden;
+    position: absolute;
+    top: 20%;
+    left: 45%;
+    z-index: 1;
+    background-color: #b1c77c;
+    border: 3px solid #386641;
+    border-radius: 15px;
+    padding: 2em 3em;
+    color: black;
+    transition: all .25s;
+}
 
-        #form-loteria div label {
-            display: block;
-            margin-top: 1em;
-            margin-bottom: .2em;
-        }
+#form-loteria div label {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: .2em;
+}
 
-        #form-loteria input {
-            padding: .5em;
-            border-radius: .3rem;
-            border-style: none;
-        }
+#form-loteria input {
+    padding: .5em;
+    border-radius: .3rem;
+    border-style: none;
+}
 
-        #form-loteria .buttons {
-            margin-top: 2em;
-            display: block;
-            text-align: center;
-        }
+#form-loteria .buttons {
+    margin-top: 2em;
+    display: block;
+    text-align: center;
+}
 
-        #form-loteria input{
-            border: 2px solid rgb(255, 255, 255);
-        }
+#form-loteria input {
+    border: 2px solid rgb(255, 255, 255);
+}
 
-        #form-loteria input:focus {
-            outline: none;
-            border-color: #386641;
-        }
+#form-loteria input:focus {
+    outline: none;
+    border-color: #386641;
+}
 
-        .buttons #anadir,
-        .buttons #cancelar {
-            border: none;
-            cursor: pointer;
-            padding: 1em;
-            border-radius: .2rem;
-            transition: all .25s;
-            font-weight: bold;
-            color: #f2ebcf;
-        }
+.buttons #anadir,
+.buttons #cancelar,
+.conf-buttons #aceptar,
+.conf-buttons #volver {
+    border: none;
+    cursor: pointer;
+    padding: 1em;
+    border-radius: .2rem;
+    transition: all .25s;
+    font-weight: bold;
+    color: #f2ebcf;
+}
 
-        .buttons #anadir {
-            background-color: #386641;
-            margin-right: 1.5em;
-        }
+.buttons #anadir,
+.conf-buttons #aceptar {
+    background-color: #386641;
+    margin-right: 1.5em;
+}
 
-        .buttons #anadir:hover{
-            background-color: #6a994e;
-        }
+.buttons #anadir:hover,
+.conf-buttons #aceptar:hover {
+    background-color: #6a994e;
+}
 
-        .buttons #cancelar {
-            background-color: #bc4749;
-        }
+.buttons #cancelar,
+.conf-buttons #volver {
+    background-color: #bc4749;
+}
 
-        .buttons #cancelar:hover{
-            background-color: #df6264;
-        }
-
-        .ver {
-            visibility: visible;
-            opacity: 1;
-        }
-
+.buttons #cancelar:hover,
+.conf-buttons #volver:hover {
+    background-color: #df6264;
+}
